@@ -160,6 +160,35 @@ class Linkedlist{
 
     }
 
+
+    search(value){
+        if(this.isEmpty()){
+            return null;
+        }
+        let i= 0;
+        let curr = this.head;
+        while(curr){
+            if(curr.value === value){
+                return i;
+            }
+            curr = curr.next;
+            i++
+        }
+        return -1   // if the node was not found in the list and we return -1
+    }
+
+    reverse(){
+        let prev = null;
+        let curr = this.head;
+        while(curr){
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+    }
+
     //seperate video for this print method
     print(){
         if(this.isEmpty()){
@@ -201,13 +230,25 @@ list.print()
 // console.log(list.removeFrom(4));
 // list.print()
 
-console.log(list.removeValue(40));
+// console.log(list.removeValue(40));
+// list.print()
+
+// console.log(list.search(40));  // 3
+// console.log(list.search(60));  // -1
+
+list.reverse()
 list.print()
 
 
-console.log(list.removeValue(60));
-console.log(list.getSize());
 
+
+
+
+
+
+
+
+// removeValue()
 // We nned to get hold of the node previous to the node that contains the value.
 // For example, to delete node 25, we need a reference to node 20.
 // That is why, we are going to use a temporary pointer called previous.
@@ -217,5 +258,40 @@ console.log(list.getSize());
 // 
 // removeValue() la, removing a head node is always a constant time comlpexities.
 // However, removing a node  in general has a linear time complexities as the node  to be removed might be the last node in the list.
+
+
+
+// Linked List Reverse
+// Generally, head node points at 1, 1 points at 2, 3 points at null.
+// Now, we can be make it reverse using such steps.
+// we are going to create two temporary pointers. Previous(prev) and Current(curr)
+// Previous which does not point at any node technically points at null.
+// Current which points at head. [Preview image no intro.png]. 
+// We follow four steps.
+// Step one we create a new temporary pointer called "next" and point it to current.next
+// we then set, current.next = previous. So 1 now points at "null" instead of pointing at 2. The direction has reversed
+// we then update previous => current. So previous now points from null to one. 
+// then, current now points at two
+//
+// "next" points at current.next
+//  current.next points at previous (here we change the arrow from right indicator to left indicator)
+//  previous points at current
+//  finally, current points at next. [Preview reverse 2]
+//  
+//  
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
