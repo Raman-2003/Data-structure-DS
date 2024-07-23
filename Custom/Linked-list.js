@@ -135,6 +135,31 @@ class Linkedlist{
         return removeNode;
     }
 
+    removeValue(value){
+        if(this.isEmpty()){
+            return null;
+        }
+        if(this.head.value === value){
+            this.head = this.head.next;
+            this.size--;
+            return value;
+        }else {
+            let prev = this.head;
+            while(prev.next && prev.next.value !== value){  // this line checks prev.next values irukanum. because value check panna. Suppose false aana exit aagidum. prev.next true ah irundhal, andha prev.next.value not equalt to the given value ah irundhal, 149 line ku pooiduvom. Next loop run aagarthuku, next value ah assign pannidum indha line.
+                prev = prev.next;
+            }
+// When the "while" loop exists, one or two things are possible. One, the previous pointer has stopped at the node  .  previous to the node which has to be removed. So there does exist a node to be removed
+            if(prev.next){
+                const removeNode = prev.next;
+                prev.next = removeNode.next;
+                this.size--;
+                return value;
+            }
+            return null;  // Howerevr, if the previous pointer reached the last node in the list and there is no nextt node. We return null as no node could be deleted.
+        }
+
+    }
+
     //seperate video for this print method
     print(){
         if(this.isEmpty()){
@@ -173,5 +198,24 @@ list.insert(50, 4);
 
 list.print()
 
-console.log(list.removeFrom(4));
+// console.log(list.removeFrom(4));
+// list.print()
+
+console.log(list.removeValue(40));
 list.print()
+
+
+console.log(list.removeValue(60));
+console.log(list.getSize());
+
+// We nned to get hold of the node previous to the node that contains the value.
+// For example, to delete node 25, we need a reference to node 20.
+// That is why, we are going to use a temporary pointer called previous.
+// We will start off with previous at the head node.
+// we will traverse the list advancing the previous pointer till we reach the node that is previous to the node that conatins 25.
+// we have to do is change [previous.next = removeNode.next]. This wiill provide continuity required.
+// 
+// removeValue() la, removing a head node is always a constant time comlpexities.
+// However, removing a node  in general has a linear time complexities as the node  to be removed might be the last node in the list.
+//
+//
