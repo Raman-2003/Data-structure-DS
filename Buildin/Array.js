@@ -2,8 +2,8 @@ const array = [1,2,3,4,5,'Raman'];
 
 array.push(6)            // add element at the end of an array
 array.pop()              // Removes the last element from the array.
-array.unshift('Kishore') // add element at the starting position of an array.
 array.shift()            // Removes the first element of an array.
+array.unshift('Kishore') // add element at the starting position of an array.
 
 
 /* TIME COMPLEXITY IN ARRAY.

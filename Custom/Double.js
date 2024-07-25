@@ -25,7 +25,7 @@ class DoublyLinkedList{
     prepend(value){
         const node = new Node(value);
         if(this.isEmpty()){
-            this.head = node;
+            this.head = node; 
             this.tail = node;
         }else {
             node.next = this.head;

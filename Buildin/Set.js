@@ -17,6 +17,7 @@ console.log(set); // again it shows 1 2 3 4.
 
 // Set only contain unique elements.
 
+console.log(set.size); // size() bracket vendam.
 
 
 // If we want to check if a value is exists in the "set". We can use "has" method.

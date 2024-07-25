@@ -14,7 +14,7 @@ const map = new Map([['a' , 1], ['b' , 2]]);
 map.set('c', 3);
 
 
-// If we check the key si present or not, we can use "has" method.
+// If we check the key is present or not, we can use "has" method.
 console.log(map.has('c'));      //true
 
  

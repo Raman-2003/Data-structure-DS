@@ -17,7 +17,7 @@ const obj = {
 console.log(obj.name)   // Raman 
 console.log(obj['age']) // 20
 
-// 1. Consider, If we have third property "key-third". We can only access using "bracket notation". 
+// 1. Consider, If we have third property "key-third". We can only access using "Square bracket notation". 
 // Try to access the third property using "dot notation" gives error.
 console.log(obj["key-third"])  // true.
 

@@ -10,21 +10,21 @@ Each node consists of a data value and a pointer that points to the next node.
 
 
 The benifit of using linked list over conventional array data structure is that, The list of elements can be
-easily inserted or removed without reallocation or reorganization pf the entire structure.
+easily inserted or removed without reallocation or reorganization of the entire structure.
 
 this is due to items need not be stored continuously in memory.
 
 but the minus is, Random access of elements is not feasible and aceessing an element has linear time complexity.
 
 Linked list supports three main operations is that,
-1. Insertion = to add a element at the beginning, end or at a given index of the list
+1. Insertion = to add an element at the beginning, end or at a given index of the list
 2. Deletion  = to remove an element given its index or value.
 3. Search    = to find an element given its value. 
 
 
 Applications of Linked List
 
-1. Using Linked List, we can implement Stacks and Queues Data structure
+Using Linked List, we can implement Stacks and Queues Data structure
 Image viewer => We can see photos continuously in a slideshow
 
 */
@@ -41,8 +41,8 @@ class Node{
 class Linkedlist{
     constructor(){
         this.head = null; // Initially, it is empty and point at null. It has null in the head(first) position. Whenever we create linked-list, the head position points out the null.
-        this.size = 0;
-    }  // Whenever we add a new node we will increment the value. When we remove a node, we willdecrement the size value. 
+        this.size = 0; 
+    }  // Whenever we add a new node we will increment the value. When we remove a node, we will decrement the size value. 
 
     isEmpty(){
         return this.size === 0;
@@ -57,17 +57,17 @@ class Linkedlist{
     prepend(value){
        const node = new Node(value);  // "new" keyword => new instance create pandrom(current value vachi). Node() means "Node" class call pandrom. () => is used to call the Node constructor
        if(this.isEmpty()){            // IsEmpty true ah irundhal, this.head = null nu irukunm. Ippo first time oru value ah insert pandra apo isEmpty "true" ah dhan irukum. Apo, first value ah this.head ku assign pandrom. Ipo this.head la edho oru value irukum.
-        this.head = node;             // head node always point out the current insert node
+        this.head = node;             // head node always point out the current insert node. That is why line 60 and 63 is same
        } else{
           node.next = this.head;      // next node create pannum podhu, kandippa isEmpty false ah dhan irukum. So, straight ah else ku varum. ipo current node oda connectivity and pointer kaga this.head(10) ah node.next ku assign pandrom (POINTER ah).
           this.head = node;           // // head node always point out the current node. Current node ah again this.head la assign pandrom.
        }
       this.size++
     }
-    // This prepend does not care about the existing values in theh lists. So, It has Constant O(1)
+    // This prepend does not care about the existing values in the lists. So, It has Constant O(1)
 
 
-     // this method is used to append the value 
+       // this method is used to append the value 
     // Remember, the head pointer should always point at the first(current) node in the list
     append(value){
         const node = new Node(value);
@@ -82,7 +82,7 @@ class Linkedlist{
         }
         this.size++
     }
-    // This append does care about the existing values in theh lists using While loop at the last. So, It has Linear O(n)
+    // This append does care about the existing values in the lists using While loop at the last. So, It has Linear O(n)
 
 
     /*
@@ -91,23 +91,22 @@ class Linkedlist{
     this case, we have three cases. 
         First => invalid index
             This means, the index is less than Zero or Index is greater than size of the list   
-        Second = > index equal to Zero. 
-            Means it needs to insert theh value at beginning of the list. We cuse prepend method.
-        
+        Second = > index is equal to Zero. 
+            Means it needs to insert the value at the beginning of the list. We use prepend method.
     */
 
     insert(value, index){
         if(index < 0 || index > this.size){
-            return 
+            return // We return nothing here.
         }
         if(index === 0){
             this.prepend(value);
-        }else {
+        }else {                             // First thing, it follows the array index position. I didn't care about user perception.
             const node = new Node(value);
             let prev = this.head;
             for(let i=0; i<index-1; i++){
                 prev = prev.next;
-            }
+            }            
             node.next = prev.next;
             prev.next = node;
             this.size++;
@@ -181,7 +180,7 @@ class Linkedlist{
         let prev = null;
         let curr = this.head;
         while(curr){
-            let next = curr.next;
+            let next = curr.next;  // these four lines follows the reverse1.png image in Images.
             curr.next = prev;
             prev = curr;
             curr = next;
@@ -204,16 +203,11 @@ class Linkedlist{
             console.log(listValues);
         }
     }
-
-   
-
-
- 
-}
+ }
 
 const list = new Linkedlist();
 console.log("List is empty? ", list.isEmpty());
-console.log("Size of lsit ", list.getSize());
+console.log("Size of list ", list.getSize());
 
 list.insert(10, 0);
 
@@ -227,6 +221,10 @@ list.insert(50, 4);
 
 list.print()
 
+list.insert(90, 3);
+
+list.print();
+
 // console.log(list.removeFrom(4));
 // list.print()
 
@@ -236,8 +234,8 @@ list.print()
 // console.log(list.search(40));  // 3
 // console.log(list.search(60));  // -1
 
-list.reverse()
-list.print()
+// list.reverse()
+// list.print()
 
 
 
