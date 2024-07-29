@@ -198,6 +198,8 @@ print()             => visualize the elements in the queue.
         }
         const item = this.items[this.front];
         this.items[this.front] = null;
+        console.log("this.items[this.front] " ,this.items[this.front]);
+        console.log("this.front value: ",this.front);
         this.front = (this.front + 1) % this.capacity;  // this line will be helpful to dequeue the next element
         this.currentLength -= 1;
         if(this.isEmpty()){
