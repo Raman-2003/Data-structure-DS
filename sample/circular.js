@@ -79,3 +79,70 @@ circular.print()
 
 circular.dequeue()
 circular.print()
+
+
+class circulars{
+    constructor(capacity){
+        this.capacity = capacity;
+        this.items = new Array[capacity]
+        this.currentLenght = 0;
+        this.front = -1 
+        this.end = -1 
+    }
+
+    isFull(){
+        return this.currentLenght === this.capacity
+    }
+
+    isEmpty(){
+        return this.currentLenght === 0
+    }
+
+    enqueue(value){
+        if(!this.isFull()){
+            this.rear = (this.rear+1)%this.capacity;
+            this.items[this.rear] = value;
+            this.currentLenght +=1;
+            if(this.front === -1){
+                this.front = this.rear;
+            }
+        }
+    }
+
+    dequeue(){
+        if(this.isEmpty()){
+            return null;
+        }
+        const item = this.items[this.front];
+        this.items[this.front] = null;
+        this.front = (this.front+1)%this.capacity;
+        this.currentLenght -= 1;
+        if(this.size === 0){
+            this.front = -1;
+            this.rear = -1
+        }
+        return item;
+    }
+
+    peek(){
+        if(!this.isEmpty()){
+            return this.items[this.front]
+        }else{
+            return -1
+        }
+    }
+
+    print(){
+        if(this.isEmpty()){
+            console.log('List is Empty');
+        }else{
+            let i;
+            let listedValues = ''
+            for(i=this.front; i!==this.rear; i=(i+1)%this.capacity){
+                listedValues += [this.items] + " "
+            }
+            listedValues += this.items[i]
+            console.log(listedValues);
+        }
+    }
+}

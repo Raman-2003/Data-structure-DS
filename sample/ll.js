@@ -102,7 +102,34 @@ class linked{
         return removeDeleteValue;
     }
 
-   
+    search(value){  // value oda index;
+        if(this.isEmpty()){
+            return null;
+        }else{
+            let i=0;
+            let curr = this.head;
+            while(curr){
+                if(curr.value === value){
+                    return i;
+                }
+                i++;
+                curr = curr.next
+            }
+        }
+        return -1
+    }
+
+     reverse(){
+        let curr = this.head;
+        let prev = null;
+        while(curr){
+            let next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        this.head = prev;
+     }
 
     print(){
         if(this.isEmpty()){
@@ -133,6 +160,10 @@ list.removeValue(99)
 
 list.print()
 
+console.log(list.search(30));
+
+list.reverse()
+list.print()
 
 
 

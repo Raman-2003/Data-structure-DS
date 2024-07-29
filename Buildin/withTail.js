@@ -40,7 +40,7 @@ class withTail{
             this.head = node;
             this.tail = node;
         }else{
-            this.tail.next = node;
+            this.tail.next = node;  // semma logic
             this.tail = node;
         }
         this.size++
@@ -72,6 +72,7 @@ class withTail{
             while(current.next !== this.tail){
                 current = current.next;
             }
+            console.log("this.tail value ", this.tail);
             console.log("Current value: ", current);
             console.log("This.tail value ", this.tail);
             removeValue = this.tail;

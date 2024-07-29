@@ -1,7 +1,7 @@
 class CircularQueue{
     constructor(capacity){
-        this.items = new Array(capacity);
-        this.capacity = capacity;
+        this.items = new Array(capacity);  
+        this.capacity = capacity;  
         this.currentLength = 0;
         this.front = -1;
         this.rear = -1
@@ -15,7 +15,7 @@ class CircularQueue{
         return this.currentLength === 0
     }
 
-    enqueue(value){
+    enqueue(value){   //  30 40 70 3483498 5988579 59859 5495498 9854985498
         if(!this.isFull()){
             this.rear = (this.rear+1)%this.capacity
             this.items[this.rear] = value;
