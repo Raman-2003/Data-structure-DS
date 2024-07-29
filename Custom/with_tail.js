@@ -46,14 +46,14 @@ class Linkedlist{
         this.size++  // check prepend tail.png image for clarification
     }
 
-    append(value){
+    append(value){ 
         const node = new Node(value);
         if(this.isEmpty()){
             this.head = node;
             this.tail = node;
         }else{
             this.tail.next = node;  // Because this line shows the append. We need to extend the tail using .next=node
-            this.tail = node;
+            this.tail = node;   // point out the tail into the new node. must
         }
         this.size++  // check append tail.png image for referenece
     }
