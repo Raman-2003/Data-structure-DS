@@ -63,6 +63,9 @@ class linked{
         this.size++
     }  
 
+
+   
+
     removeIndex(index){
         if(index<0 || index>=this.size){
             return null;
@@ -85,6 +88,8 @@ class linked{
         return removeNode
     }
 
+   
+
     removeValue(value){
         let removeDeleteValue;
         if(this.head.value === value){
@@ -101,6 +106,8 @@ class linked{
         this.size--
         return removeDeleteValue;
     }
+
+    
 
     search(value){  // value oda index;
         if(this.isEmpty()){
@@ -119,6 +126,8 @@ class linked{
         return -1
     }
 
+    
+
      reverse(){
         let curr = this.head;
         let prev = null;
@@ -130,6 +139,8 @@ class linked{
         }
         this.head = prev;
      }
+
+    
 
     print(){
         if(this.isEmpty()){
@@ -156,9 +167,7 @@ list.append(40)
 list.append(50)
 
 list.insert(99, 2)
-list.removeValue(99)
 
-list.print()
 
 console.log(list.search(30));
 

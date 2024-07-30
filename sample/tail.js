@@ -45,6 +45,8 @@ class tail{
         this.size++
     }
 
+
+
     removeFront(){
         let removefront;
         if(this.size === 1){
@@ -60,14 +62,39 @@ class tail{
     }
 
 
+    
+
+
+    // removeEnd(){
+    //     let removeEnd;
+    //     if(this.isEmpty()){
+    //         return null;
+    //     }
+    //     console.log(this.size);
+    //     if(this.size === 1){
+    //         removeEnd = this.tail;
+    //         this.head = null;
+    //         this.tail = null;
+    //     }else{
+    //         let curr = this.head;
+    //         while(curr.next !== this.tail){
+    //             curr = curr.next;
+    //         }
+    //         removeEnd = this.tail;
+    //         this.tail = curr;
+    //         this.tail.next = null;
+    //     }
+    //     this.size--
+    //     return removeEnd;
+    // }
+
     removeEnd(){
-        let removeEnd;
         if(this.isEmpty()){
             return null;
         }
-        console.log(this.size);
+        let removeNode;
         if(this.size === 1){
-            removeEnd = this.tail;
+            removeNode = this.tail;
             this.head = null;
             this.tail = null;
         }else{
@@ -75,14 +102,15 @@ class tail{
             while(curr.next !== this.tail){
                 curr = curr.next;
             }
-            removeEnd = this.tail;
-            this.tail = curr;
-            this.tail.next = null;
+            if(curr.next){
+                removeNode = this.tail;
+                this.tail = curr;
+                this.tail.next = null;
+            }
         }
         this.size--
-        return removeEnd;
+        return removeNode
     }
-
 
     print(){
         if(this.isEmpty()){
@@ -118,3 +146,5 @@ tails.print()
 
 tails.removeEnd()
 tails.print()
+
+
