@@ -83,7 +83,7 @@ class Linkedlist{
         }else {
             // scenario 3  [hold of the node that is pervious to the tail node]
             let prev = this.head;
-            while(prev.next !== this.tail){
+            while(prev.next !== this.tail){ 
                 prev = prev.next;
             }
             prev.next = null;

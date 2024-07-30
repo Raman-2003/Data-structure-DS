@@ -77,7 +77,7 @@ class Double{
             this.tail.next = null;
         }
         this.size--
-       
+
     }
 
     print(){
