@@ -5,18 +5,17 @@ class Node{
     }
 }
 
-
-class withTail{
+class tail{
     constructor(){
         this.head = null;
         this.tail = null;
-        this.size = 0
+        this.size = 0;
     }
 
     isEmpty(){
         return this.size === 0
     }
-
+    
     getSize(){
         return this.size;
     }
@@ -27,14 +26,15 @@ class withTail{
             this.head = node;
             this.tail = node;
         }else{
-            node.next = this.head ;
+            node.next = this.head;
             this.head = node;
         }
         this.size++
     }
 
+
     append(value){
-        let node =new Node(value)
+        const node = new Node(value);
         if(this.isEmpty()){
             this.head = node;
             this.tail = node;
@@ -45,38 +45,44 @@ class withTail{
         this.size++
     }
 
-    removeFrontValue(){
-        if(this.isEmpty()){
-            return;
-        }else{
-            const value = this.head;
-            this.head = value.next; 
-            this.size--
-            return value;
-        }
-    }
-
-    removeValueEnd(){
-        let removeValue
-        if(this.isEmpty()){
-            return;
-        } 
-        if(this.getSize() === 1){
-            removeValue = this.tail;
+    removeFront(){
+        let removefront;
+        if(this.size === 1){
+            removefront = thiss.head;
             this.head = null;
             this.tail = null;
         }else{
-           let curr = this.head;
-           while(curr.next !== this.tail){
-            curr = curr.next;
-           }
-            removeValue = this.tail;
+            removefront = this.head;
+            this.head = removefront.next;
+        }
+           this.size--
+           return removefront
+    }
+
+
+    removeEnd(){
+        let removeEnd;
+        if(this.isEmpty()){
+            return null;
+        }
+        console.log(this.size);
+        if(this.size === 1){
+            removeEnd = this.tail;
+            this.head = null;
+            this.tail = null;
+        }else{
+            let curr = this.head;
+            while(curr.next !== this.tail){
+                curr = curr.next;
+            }
+            removeEnd = this.tail;
             this.tail = curr;
             this.tail.next = null;
         }
         this.size--
-        return removeValue;
+        return removeEnd;
     }
+
 
     print(){
         if(this.isEmpty()){
@@ -86,7 +92,7 @@ class withTail{
             let listedValues = ''
             while(curr.next !== null){
                 listedValues += `${curr.value} `
-                curr = curr.next
+                curr = curr.next;
             }
             listedValues += curr.value;
             console.log(listedValues);
@@ -95,18 +101,20 @@ class withTail{
 }
 
 
-const list = new withTail()
-list.prepend(30)
-list.prepend(20)
-list.prepend(10)
+const tails = new tail()
 
-list.append(40)
-list.append(50)
+tails.prepend(30)
+tails.prepend(20)
+tails.prepend(10)
 
-list.print()
+tails.append(40)
+tails.append(50)
 
-list.removeFrontValue()
-list.print()
+tails.print()
 
-list.removeValueEnd()
-list.print()
+
+tails.removeFront()
+tails.print()
+
+tails.removeEnd()
+tails.print()
